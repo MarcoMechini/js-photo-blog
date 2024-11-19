@@ -75,14 +75,10 @@ main h1 {
 }
 
 .garbage {
-    width: 20px;
-    height: 20px;
-    background-color: blue;
-
-
     position: absolute;
-    top: 20px;
-    right: 30px;
+    top: 30px;
+    right: 40px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 799px) {

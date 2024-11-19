@@ -28,12 +28,12 @@ const getPost = (posts) => {
         //     `
 
         const post = $elem('div');
-        const garbageBtn = $elem('div');
+        const garbageBtn = $elem('i');
         const postImg = $elem('img');
         const postP = $elem('p');
 
         post.classList.add("post");
-        garbageBtn.classList.add("garbage");
+        garbageBtn.classList.add("fa-regular", "garbage", "fa-trash-can");
         postImg.src = `${curPost.url}`;
         postImg.alt = `${curPost.thumbnailUrl}`;
         postP.innerText = `${curPost.title}`;
