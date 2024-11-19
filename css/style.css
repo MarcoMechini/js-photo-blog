@@ -18,16 +18,23 @@ body {
 
 main h1 {
     font-family: Edu TAS Beginner;
+    font-size: 3rem;
     margin: 0 auto;
     width: fit-content;
+    padding: 12px 0;
 }
 
 /* SECTION ALBUM */
 
 .album {
+    padding-top: 24px;
     background-image: url("../assets/img/cork.png");
+    background-size: contain;
+    background-repeat: repeat;
     display: flex;
     flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
 }
 
 /* POSTS */
@@ -37,28 +44,51 @@ main h1 {
     padding: 12px 24px;
     background-color: #fff;
     position: relative;
+    max-width: 75%;
+    min-width: 300px;
 }
 
 .post::before {
     content: '';
+    width: 30px;
+    height: 30px;
+    display: inline-block;
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
+    transform: translate(-50%, -50%);
     background-image: url("../assets/img/pin.svg");
-    width: 40px;
-    height: 40px;
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .post img {
-    height: 600px;
-    width: 600px;
+    width: fit-content;
 }
 
 .post p {
     font-family: Sometype Mono;
     font-style: italic;
+}
+
+@media screen and (min-width: 799px) {
+    .album {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .post {
+        width: calc(75% / 2);
+    }
+}
+
+@media screen and (min-width: 1199px) {
+    .album {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .post {
+        width: calc(75% / 3);
+    }
 }
