@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* BODY */
+
+body {
+    background-image: url("../assets/img/wall.png");
+}
+
+/* MAIN */
+
+main h1 {
+    font-family: Edu TAS Beginner;
+}
+
+/* SECTION ALBUM */
+
+.album {
+    background-image: url("../assets/img/cork.png");
+}
+
+/* POSTS */
+
+.posts {
+    width: fit-content;
+    padding: 12px 24px;
+    background-color: #fff;
+}
+
+.posts img {
+    height: 600px;
+    width: 600px;
+}
+
+.posts p {
+    font-family: Sometype Mono;
+    font-style: italic;
+}
