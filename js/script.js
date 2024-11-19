@@ -1,27 +1,52 @@
-const $one = (bind) => document.querySelector(bind);
+const $one = document.querySelector.bind(document);
+const $elem = document.createElement.bind(document);
 
 const album = $one('.album');
-console.log(album);
+// const garbageBtn = $one('#garbage');
+// console.log(album);
 
-let postArr = [];
 
 axios
     .get('https://jsonplaceholder.typicode.com/photos?_limit=6', { timeout: 8000 })
     .then(resp => {
         console.log(resp.data);
         postArr = resp.data;
-        getPost();
+        getPost(postArr);
     });
 
-const getPost = () => {
-    postArr.forEach(curPost => {
-        console.log(curPost.url);
 
-        album.innerHTML += `
-            <div class="post">
-                <img src="${curPost.url}" alt="${curPost.thumbnailUrl}">
-                <p>${curPost.title}</p>
-            </div>
-            `
+const getPost = (posts) => {
+    posts.forEach(curPost => {
+        // console.log(curPost.url);
+
+        // album.innerHTML += `
+        //     <div class="post">
+        //         <div class="garbage"></div>
+        //         <img src="${curPost.url}" alt="${curPost.thumbnailUrl}">
+        //         <p>${curPost.title}</p>
+        //     </div>
+        //     `
+
+        const post = $elem('div');
+        const garbageBtn = $elem('div');
+        const postImg = $elem('img');
+        const postP = $elem('p');
+
+        post.classList.add("post");
+        garbageBtn.classList.add("garbage");
+        postImg.src = `${curPost.url}`;
+        postImg.alt = `${curPost.thumbnailUrl}`;
+        postP.innerText = `${curPost.title}`;
+
+
+        garbageBtn.addEventListener('click', () => {
+            console.log('sto per cancellare');
+            post.remove();
+        });
+
+
+        post.append(postImg, garbageBtn, postP);
+        album.appendChild(post);
+
     })
 }
