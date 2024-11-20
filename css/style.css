@@ -8,12 +8,6 @@ img {
     max-width: 100%;
 }
 
-/* GENERAL */
-
-.d-none {
-    display: none;
-}
-
 /* BODY */
 
 body {
@@ -24,11 +18,31 @@ body {
 /* OVERLAY */
 
 .overlay {
+    background-color: rgba(0, 0, 0, 0.6);
     position: absolute;
-    background-color: red;
-    height: 100vh;
-    width: 100vw;
     z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.exit {
+    padding: 4px 8px;
+    background-color: #fff;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    cursor: move;
+}
+
+/* PROVA PER SELEZIONARE TUTTO QUELLO CHE NON È IMMAGINE DENTRO IL DIV OVERLAY
+TEST FALLITO :( PRENDE ANCHE L'IMMAGINE */
+div.overlay> :not(img) {
+    color: black;
+    background-color: red;
+    width: 200px;
 }
 
 /* MAIN */
@@ -51,8 +65,8 @@ main h1 {
     background-repeat: repeat;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
     justify-content: center;
+    gap: 16px;
 }
 
 /* POSTS */
@@ -96,6 +110,16 @@ main h1 {
     top: 30px;
     right: 40px;
     cursor: pointer;
+}
+
+/* GENERAL */
+
+.d-none {
+    display: none;
+}
+
+.stop-scroll {
+    overflow: hidden;
 }
 
 @media screen and (min-width: 799px) {
