@@ -8,10 +8,27 @@ img {
     max-width: 100%;
 }
 
+/* GENERAL */
+
+.d-none {
+    display: none;
+}
+
 /* BODY */
 
 body {
     background-image: url("../assets/img/wall.png");
+    position: relative;
+}
+
+/* OVERLAY */
+
+.overlay {
+    position: absolute;
+    background-color: red;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
 }
 
 /* MAIN */

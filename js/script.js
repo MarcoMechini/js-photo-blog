@@ -2,6 +2,9 @@ const $one = document.querySelector.bind(document);
 const $elem = document.createElement.bind(document);
 
 const album = $one('.album');
+const overlay = $one('.overlay');
+const overlayImg = $one('.overlay img');
+const exit = $one('.exit');
 // const garbageBtn = $one('#garbage');
 // console.log(album);
 
@@ -30,12 +33,15 @@ const getPost = (posts) => {
         const post = $elem('div');
         const garbageBtn = $elem('i');
         const postImg = $elem('img');
+        // const overlayImg = $elem('img');
         const postP = $elem('p');
 
         post.classList.add("post");
-        garbageBtn.classList.add("fa-regular", "garbage", "fa-trash-can");
+        garbageBtn.classList.add("fa-regular", "fa-trash-can", "garbage");
         postImg.src = `${curPost.url}`;
         postImg.alt = `${curPost.thumbnailUrl}`;
+        // overlayImg.src = `${curPost.url}`;
+        // overlayImg.alt = `${curPost.thumbnailUrl}`;
         postP.innerText = `${curPost.title}`;
 
 
@@ -44,9 +50,22 @@ const getPost = (posts) => {
             post.remove();
         });
 
+        postImg.addEventListener('click', () => {
+            console.log('over');
+            overlay.classList.remove('d-none');
+            console.log(overlayImg);
+            overlayImg.src = `${curPost.url}`;
+            overlayImg.alt = `${curPost.thumbnailUrl}`;
+        });
 
         post.append(postImg, garbageBtn, postP);
         album.appendChild(post);
 
     })
 }
+
+exit.addEventListener('click', () => {
+    console.log('fine overlay');
+
+    overlay.classList.add('d-none');
+})
