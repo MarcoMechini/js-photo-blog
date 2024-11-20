@@ -19,14 +19,20 @@ body {
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.6);
-    position: absolute;
-    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+
+.overlay-img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .exit {
@@ -42,7 +48,6 @@ TEST FALLITO :( PRENDE ANCHE L'IMMAGINE */
 div.overlay> :not(img) {
     color: black;
     background-color: red;
-    width: 200px;
 }
 
 /* MAIN */
@@ -71,6 +76,7 @@ main h1 {
 
 /* POSTS */
 
+/* setta l'ombra dell immagine */
 .post {
     width: fit-content;
     max-width: 75%;
@@ -79,7 +85,39 @@ main h1 {
     padding: 12px 24px;
     background-color: #fff;
     position: relative;
+}
 
+/*
+ruota l'immagine di 10 gradi 
+zoom dell'immagine
+aumenta l'ombra
+*/
+/* fun animation 4 rotate card 10deg  */
+@keyframes rotate10 {
+    0% {
+        rotate: 0deg
+    }
+
+    100% {
+        rotate: 10deg
+    }
+}
+
+/*
+in mouse hover animation rotate card 10deg
+
+*/
+.post:hover {
+    animation-name: rotate10;
+    animation-duration: 2s;
+    rotate: 10deg;
+    box-shadow: 5px 5px #000;
+    zoom: 1.1;
+}
+
+/*in mouse hover element before display one*/
+.post:hover::before {
+    display: none;
 }
 
 .post::before {
@@ -118,9 +156,11 @@ main h1 {
     display: none;
 }
 
-.stop-scroll {
+
+/*non serve più*/
+/* .stop-scroll {
     overflow: hidden;
-}
+} */
 
 @media screen and (min-width: 799px) {
     .album {

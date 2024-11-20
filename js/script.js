@@ -4,13 +4,14 @@ const $elem = document.createElement.bind(document);
 const body = $one('body');
 const album = $one('.album');
 const overlay = $one('.overlay');
-const overlayImg = $one('.overlay img');
+const overlayImg = $one('.overlay-img');
 
 //old overlay version
 //const exit = $one('.exit');
+
 //select all parents without child img tag 
 //now this select all the parents
-const exitAll = $one('div.overlay:not(img)');
+const exitAll = $one('.overlay > :not(img)');
 // const garbageBtn = $one('#garbage');
 // console.log(album);
 
@@ -46,8 +47,8 @@ const getPost = (posts) => {
         //Add/Set class/attributs to the new element
         post.classList.add("post");
         garbageBtn.classList.add("fa-regular", "fa-trash-can", "garbage");
-        postImg.src = `${curPost.url}`;
-        postImg.alt = `${curPost.thumbnailUrl}`;
+        postImg.src = curPost.url;
+        postImg.alt = curPost.thumbnailUrl;
         postP.innerText = `${curPost.title}`;
         // overlayImg.src = `${curPost.url}`;
         // overlayImg.alt = `${curPost.thumbnailUrl}`;
@@ -61,10 +62,11 @@ const getPost = (posts) => {
         //click function show img in a page overlay
         postImg.addEventListener('click', () => {
             overlay.classList.remove('d-none');
+            overlayImg.classList.remove('d-none');
             //clas to set overflow: hidden
-            body.classList.add("stop-scroll")
-            overlayImg.src = `${curPost.url}`;
-            overlayImg.alt = `${curPost.thumbnailUrl}`;
+            // body.classList.add("stop-scroll")              
+            overlayImg.src = curPost.url;
+            overlayImg.alt = curPost.thumbnailUrl;
         });
 
         post.append(postImg, garbageBtn, postP);
@@ -74,8 +76,9 @@ const getPost = (posts) => {
 }
 
 //click function all over img to exit from overlay
-exitAll.addEventListener('click', () => {
+overlay.addEventListener('click', () => {
     console.log('fine tutto');
 
     overlay.classList.add('d-none');
+    overlayImg.classList.add('d-none');
 })
