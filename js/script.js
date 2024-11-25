@@ -53,7 +53,7 @@ const getPost = (posts) => {
         // overlayImg.src = `${curPost.url}`;
         // overlayImg.alt = `${curPost.thumbnailUrl}`;
 
-        //funzione per rimuovere l'elemento al click su icona cestino
+        //click function on delete btn 4 remove current dom element
         garbageBtn.addEventListener('click', () => {
             console.log('sto per cancellare');
             post.remove();

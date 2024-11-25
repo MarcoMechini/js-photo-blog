@@ -45,10 +45,10 @@ body {
 
 /* PROVA PER SELEZIONARE TUTTO QUELLO CHE NON È IMMAGINE DENTRO IL DIV OVERLAY
 TEST FALLITO :( PRENDE ANCHE L'IMMAGINE */
-div.overlay> :not(img) {
+/* div.overlay> :not(img) {
     color: black;
     background-color: red;
-}
+} */
 
 /* MAIN */
 
@@ -76,7 +76,6 @@ main h1 {
 
 /* POSTS */
 
-/* setta l'ombra dell immagine */
 .post {
     width: fit-content;
     max-width: 75%;
@@ -107,7 +106,7 @@ aumenta l'ombra
 in mouse hover animation rotate card 10deg
 
 */
-.post:hover {
+.post img:hover {
     animation-name: rotate10;
     animation-duration: 2s;
     rotate: 10deg;
@@ -115,7 +114,7 @@ in mouse hover animation rotate card 10deg
     zoom: 1.1;
 }
 
-/*in mouse hover element before display one*/
+/*in mouse hover element before display none*/
 .post:hover::before {
     display: none;
 }
